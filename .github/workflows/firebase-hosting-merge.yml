@@ -12,21 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
-      with:
-        java-version: '12.x'
-          - uses: subosito/flutter-action@v1
-          - name: Decode base64 secrets
-            run: echo $SECRETS_FILE_CONTENT | base64 -d > lib/src/constant/secrets.dart
-            env:
-              SECRETS_FILE_CONTENT: ${{ secrets.SECRETS_FILE_CONTENT }}
-          - name: 'Run flutter pub get'
-            run: flutter pub get
-          - name: 'Build Web App'
-            run: flutter build web
-          - uses: FirebaseExtended/action-hosting-deploy@v0
-      with:
-        repoToken: '${{ secrets.GITHUB_TOKEN }}'
-        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_CLI_D1942 }}'
-        channelId: live
-        projectId: fir-cli-d1942
+        with:
+          java-version: '12.x'
+        - uses: subosito/flutter-action@v1
+        - name: Decode base64 secrets
+          run: echo $SECRETS_FILE_CONTENT | base64 -d > lib/src/constant/secrets.dart
+          env:
+            SECRETS_FILE_CONTENT: ${{ secrets.SECRETS_FILE_CONTENT }}
+        - name: 'Run flutter pub get'
+          run: flutter pub get
+        - name: 'Build Web App'
+          run: flutter build web
+        - uses: FirebaseExtended/action-hosting-deploy@v0
+         with:
+           repoToken: '${{ secrets.GITHUB_TOKEN }}'
+           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_CLI_D1942 }}'
+           channelId: live
+           projectId: fir-cli-d1942
 
