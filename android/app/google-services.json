@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457683112054",
+    "project_id": "fir-cli-d1942",
+    "storage_bucket": "fir-cli-d1942.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457683112054:android:83e9f68454dd6597d80f57",
+        "android_client_info": {
+          "package_name": "com.example.fireabase_cli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457683112054-8vcb26rr1lqma622pku2lrg93p5ctt23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_sB2K7ca-1GZSN4H0rhdF4HRSSNkU9jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457683112054-8vcb26rr1lqma622pku2lrg93p5ctt23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
