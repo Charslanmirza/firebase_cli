@@ -22,9 +22,9 @@ jobs:
             - name: 'Build Web App'
               run: flutter build web
             - uses: FirebaseExtended/action-hosting-deploy@v0
-          with:
-            repoToken: '${{ secrets.GITHUB_TOKEN }}'
-            firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_CLI_D1942 }}'
-            channelId: live
-            projectId: fir-cli-d1942
+              with:
+                repoToken: '${{ secrets.GITHUB_TOKEN }}'
+                firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_CLI_D1942 }}'
+                channelId: live
+                projectId: fir-cli-d1942
 
