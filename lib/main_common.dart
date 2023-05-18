@@ -1,10 +1,9 @@
+import 'package:fireabase_cli/app_config/app_config.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-void main() async {
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-  runApp(const MyApp());
+void mainCommon() {
+  // Here would be background init code, if any
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +11,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    var config = AppConfig.of(context);
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (_, __) => Scaffold(
+            appBar: AppBar(title:  Text(config!.appDisplayName!),),
+            body: Center(child: Text(config!.stringResource!.APP_DESCRIPTION!),),
+          ),
+          routes: [
+            GoRoute(
+              path: 'details',
+              builder: (_, __) => Scaffold(
+                appBar: AppBar(title:  Text(config!.stringResource!.APP_DESCRIPTION!)),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routerConfig: router,
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -42,16 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var config = AppConfig.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(config!.appDisplayName!),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed:',
+             Text(
+              config.stringResource!.APP_DESCRIPTION!,
             ),
             Text(
               '$_counter',
